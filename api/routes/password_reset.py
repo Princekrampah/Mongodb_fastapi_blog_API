@@ -1,11 +1,14 @@
+# library imports
 from fastapi import APIRouter, HTTPException, status
+
+# module imports
 from ..schemas import PasswordReset, PasswordResetRequest, db
 from ..send_email import password_reset
 from ..oauth2 import create_access_token, get_current_user
 from ..utils import get_password_hash
 
 router = APIRouter(
-    tags=["Password Reser"]
+    tags=["Password Reset"]
 )
 
 
@@ -23,13 +26,14 @@ async def reset_request(user_email: PasswordResetRequest):
         print("Hello")
 
         await password_reset("Password Reset", user["email"],
-                             {
-            "title": "Password Reset",
-            "name": user["name"],
-            "reset_link": reset_link,
-        }
+            {
+                "title": "Password Reset",
+                "name": user["name"],
+                "reset_link": reset_link
+            }
         )
-        return {"msg": "Email has been set with instructions to reset your password."}
+        return {"msg": "Email has been sent with instructions to reset your password."}
+
     else:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,

@@ -1,19 +1,18 @@
+# library imports
 import motor.motor_asyncio
 from pydantic import BaseModel, Field, EmailStr
 from pydantic import BaseModel
 from bson import ObjectId
+from typing import Optional
 import os
 from dotenv import load_dotenv
-from typing import Optional
 
 # do not specify the '.env'
 load_dotenv()
 
 # pip install pydantic[email]
-
 # python -m pip install motor
 # python3 -m pip install "pymongo[srv]"
-
 
 # connect to mongodb
 client = motor.motor_asyncio.AsyncIOMotorClient(os.getenv('MONGODB_URL'))

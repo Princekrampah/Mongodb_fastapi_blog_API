@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 
 # do not specify the '.env'
 load_dotenv()
+ 
 
 class Envs:
     MAIL_USERNAME = os.getenv('MAIL_USERNAME')
@@ -32,7 +33,7 @@ conf = ConnectionConfig(
 
 
 # https://sabuhish.github.io/fastapi-mail/example/#using-jinja2-html-templates
-async def send_email(subject: str, email_to: str, body: dict):
+async def send_registration_mail(subject: str, email_to: str, body: dict):
     message = MessageSchema(
         subject=subject,
         recipients=[email_to],

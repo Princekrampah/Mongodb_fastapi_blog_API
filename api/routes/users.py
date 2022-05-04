@@ -1,11 +1,13 @@
+# library imports
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 
+# module imports
 from api import oauth2
 from ..schemas import User, UserResponse, db
 from ..utils import get_password_hash
-from ..send_email import send_email
+from ..send_email import send_registration_mail
 import secrets
 
 
@@ -38,7 +40,7 @@ async def registration(user_info: User):
     created_user = await db["users"].find_one({"_id": new_user.inserted_id})
 
     # send email
-    await send_email("Registration successful", user_info["email"],
+    await send_registration_mail("Registration successful", user_info["email"],
                      {
         "title": "Registration successful",
         "name": user_info["name"]

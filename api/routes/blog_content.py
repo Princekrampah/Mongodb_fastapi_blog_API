@@ -1,11 +1,13 @@
-from http.client import HTTP_PORT
+# library imports
 from fastapi import APIRouter, HTTPException, status, Depends
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from ..schemas import BlogContent, BlogContentResponse, db
-from .. import oauth2
 from datetime import datetime
 from typing import List
+
+# module imports
+from ..schemas import BlogContent, BlogContentResponse, db
+from .. import oauth2
 
 router = APIRouter(
     tags=["Blog Content"]

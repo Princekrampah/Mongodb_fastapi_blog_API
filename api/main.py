@@ -1,7 +1,11 @@
+# library imports
 from fastapi import FastAPI
-from .routes import blog_content,users, auth, password_reset
 from fastapi.middleware.cors import CORSMiddleware
 
+# module imports
+from .routes import blog_content,users, auth, password_reset
+
+# initialize an app
 app = FastAPI()
 
 # Handle CORS protection
@@ -15,6 +19,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# register all the router endpoint
 app.include_router(blog_content.router)
 app.include_router(users.router)
 app.include_router(auth.router)

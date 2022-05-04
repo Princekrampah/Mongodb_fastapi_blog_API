@@ -1,5 +1,8 @@
+# library imports
 from fastapi import APIRouter, Depends, status, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
+
+# module imports
 from ..schemas import db, Token
 from .. import utils
 from .. import oauth2
