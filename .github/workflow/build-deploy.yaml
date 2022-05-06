@@ -1,0 +1,24 @@
+# this can be any name
+name: BlogAPI test
+
+# specify the on which action this action should work on
+on:
+  # specify the branches this action works on
+  push:
+    # this is also a valid syntax
+    # branches: ["master", "main"]
+    branches
+      - "main"
+      - "master"
+
+jobs:
+  # job name can be anything
+  job1:
+    # specify the OS to run on.
+    runs-on: ubuntu-latest
+    # steps, things done. Each step has a name that is used to identify the step
+    steps:
+      - name: pull repo
+        uses: actions/checkout@v2
+      - name: say hello
+        run: echo "hello world"
