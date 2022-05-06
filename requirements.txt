@@ -18,7 +18,6 @@ Deprecated==1.2.13
 dnspython==2.2.1
 ecdsa==0.17.0
 email-validator==1.2.0
-en-core-web-sm==3.2.0
 fakeredis==1.7.1
 fastapi==0.75.2
 fastapi-mail==1.0.8
@@ -59,10 +58,6 @@ six==1.16.0
 smart-open==5.2.1
 sniffio==1.2.0
 sortedcontainers==2.4.0
-spacy==3.2.4
-spacy-legacy==3.0.9
-spacy-loggers==1.0.2
-srsly==2.4.3
 starlette==0.17.1
 thinc==8.0.15
 tqdm==4.64.0
