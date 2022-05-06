@@ -19,6 +19,6 @@ jobs:
     # steps, things done. Each step has a name that is used to identify the step
     steps:
       - name: pull repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: say hello
         run: echo "hello world"
