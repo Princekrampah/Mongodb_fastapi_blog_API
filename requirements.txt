@@ -28,7 +28,7 @@ hpack==3.0.0
 hstspreload==2021.12.1
 httpcore==0.9.1
 httptools==0.4.0
-httpx==0.13.3
+httpx==0.23.3
 hyperframe==5.2.0
 idna==2.10
 Jinja2==3.1.1
