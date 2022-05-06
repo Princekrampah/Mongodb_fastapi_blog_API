@@ -7,7 +7,7 @@ on:
   push:
     # this is also a valid syntax
     # branches: ["master", "main"]
-    branches
+    branches:
       - "main"
       - "master"
 
