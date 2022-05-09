@@ -37,7 +37,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     # cause git actions runs jobs in parallel
-    needs: [job1]
+    needs: [deploy]
 
     # add environment variables
     environment:
