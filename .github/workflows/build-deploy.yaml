@@ -40,8 +40,8 @@ jobs:
     needs: [job1]
 
     # add environment variables
-    # environment:
-    #   name: heroku_production
+    environment:
+      name: heroku_production
 
     # pull git repo
     # install heroku cli
