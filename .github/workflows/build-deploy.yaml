@@ -40,8 +40,8 @@ jobs:
     needs: [job1]
 
     # add environment variables
-    environment:
-      name: heroku_production
+    # environment:
+    #   name: heroku_production
 
     # pull git repo
     # install heroku cli
@@ -51,10 +51,10 @@ jobs:
 
     steps:
       - name: Deploying to heroku
-        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.APP_NAME}} #Must be unique in Heroku
+          heroku_app_name: ${{secrets.APP_NAME}}
           heroku_email: ${{secrets.MY_EMAIL}}
 
           # healthcheck: "https://${{secrets.APP_NAME}}.herokuapp.com/health"
