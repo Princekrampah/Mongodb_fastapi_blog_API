@@ -13,7 +13,7 @@ on:
 
 jobs:
   # job name can be anything
-  job1:
+  build:
     # specify the OS to run on.
     runs-on: ubuntu-latest
     # steps, things done. Each step has a name that is used to identify the step
@@ -34,7 +34,7 @@ jobs:
       - name: Install all dependencies
         run: pip install -r requirements.txt
 
-  job2:
+  deploy:
     runs-on: ubuntu-latest
     # cause git actions runs jobs in parallel
     needs: [job1]
@@ -58,7 +58,9 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.APP_NAME}}
           heroku_email: ${{secrets.MY_EMAIL}}
-
-          # healthcheck: "https://${{secrets.APP_NAME}}.herokuapp.com/health"
+          # sometimes deploying the code can cause work but, the app crashes on herok
+          # health check can alert you on this.
+          # https://github.com/marketplace/actions/deploy-to-heroku
+          healthcheck: "https://${{secrets.APP_NAME}}.herokuapp.com/health"
         
           
