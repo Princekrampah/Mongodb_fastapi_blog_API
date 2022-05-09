@@ -50,6 +50,8 @@ jobs:
     # git push heroku master
 
     steps:
+      - name: Get actions
+        uses: actions/checkout@v3
       - name: Deploying to heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
