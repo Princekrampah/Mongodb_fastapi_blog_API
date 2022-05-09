@@ -36,10 +36,28 @@ jobs:
 
   job2:
     runs-on: ubuntu-latest
+    # cause git actions runs jobs in parallel
     needs: [job1]
 
+    # add environment variables
+    environment:
+      name: heroku_production
+
+    # pull git repo
+    # install heroku cli
+    # heroku login
+    # add git remote to heroku
+    # git push heroku master
+
     steps:
-      - name: Deploy application
-        run: echo "deploying application"
+      - name: Deploying to heroku
+        uses: actions/checkout@v2
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.APP_NAME}} #Must be unique in Heroku
+          heroku_email: ${{secrets.MY_EMAIL}}
+
+          # healthcheck: "https://${{secrets.APP_NAME}}.herokuapp.com/health"
         
           
