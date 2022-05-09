@@ -10,8 +10,8 @@ from ..schemas import BlogContent, BlogContentResponse, db
 from .. import oauth2
 
 router = APIRouter(
-    tags=["Blog Content"],
-    prefix="/blog"
+    prefix="/blog",
+    tags=["Blog Content"]
 )
 
 

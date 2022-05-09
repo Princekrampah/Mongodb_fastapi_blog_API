@@ -12,8 +12,8 @@ import secrets
 
 
 router = APIRouter(
-    tags=["Users"],
-    prefix="/users"
+    prefix="/users",
+    tags=["Users"]
 )
 
 
