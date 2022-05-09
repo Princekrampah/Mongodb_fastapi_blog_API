@@ -9,8 +9,8 @@ from .. import oauth2
 
 
 router = APIRouter(
-    prefix="/auth"
-    tags=["Authentication"],
+    prefix="/auth",
+    tags=["Authentication"]
 )
 
 
