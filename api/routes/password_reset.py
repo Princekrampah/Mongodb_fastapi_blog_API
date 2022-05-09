@@ -8,7 +8,8 @@ from ..oauth2 import create_access_token, get_current_user
 from ..utils import get_password_hash
 
 router = APIRouter(
-    tags=["Password Reset"]
+    tags=["Password Reset"],
+    prefix="/password"
 )
 
 
