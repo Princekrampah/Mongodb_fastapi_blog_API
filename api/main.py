@@ -25,3 +25,8 @@ app.include_router(blog_content.router)
 app.include_router(users.router)
 app.include_router(auth.router)
 app.include_router(password_reset.router)
+
+
+@app.get("/")
+def get():
+    return {"msg": "Hello world"}

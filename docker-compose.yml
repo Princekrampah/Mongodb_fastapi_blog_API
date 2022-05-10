@@ -1,0 +1,17 @@
+version: "3.6"
+services:
+  api:
+    build: .
+    # <port on localhost>:<port on container>
+    ports: 
+      - 8000:8000
+
+    # creating a bind mount to keep our container and dev env in sync
+    # with read only command for added security
+    volumes:
+      - ./:/usr/src/app:ro
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+    
+    # remove qoutes from env variables
+    env_file: ./api/.env
+    

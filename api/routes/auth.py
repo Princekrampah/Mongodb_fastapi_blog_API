@@ -9,12 +9,12 @@ from .. import oauth2
 
 
 router = APIRouter(
-    prefix="/auth",
+    prefix="/login",
     tags=["Authentication"]
 )
 
 
-@router.post("/login", response_model=Token)
+@router.post("", response_model=Token, status_code=status.HTTP_200_OK)
 async def login(user_credentials: OAuth2PasswordRequestForm = Depends()):
 
     user = await db["users"].find_one({"name": user_credentials.username})

@@ -17,7 +17,7 @@ router = APIRouter(
 )
 
 
-@router.post("/registration", response_description="Register New User", response_model=UserResponse)
+@router.post("/registration", response_description="Register New User", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 async def registration(user_info: User):
     user_info = jsonable_encoder(user_info)
 
@@ -42,10 +42,10 @@ async def registration(user_info: User):
 
     # send email
     await send_registration_mail("Registration successful", user_info["email"],
-                     {
-        "title": "Registration successful",
-        "name": user_info["name"]
-    }
+        {
+            "title": "Registration successful",
+            "name": user_info["name"]
+        }
     )
 
     return created_user
