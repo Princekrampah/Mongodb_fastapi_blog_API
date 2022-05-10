@@ -1,0 +1,25 @@
+version: "3.6"
+services:
+  api:
+    # in production we dont actually build the image
+    # we instead clone an image we deployed to dockerhub. The image name is
+    # the name of the repository at dockerhub
+    image: princekrampah/blogapi
+
+    # change 8000 to 80
+    ports: 
+      - 80:8000
+          
+    environment:
+      - MONGODB_URL=${MONGODB_URL}
+      - MAIL_USERNAME=${MAIL_USERNAME}
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+      - MAIL_FROM=${MAIL_FROM}
+      - MAIL_PORT=${MAIL_PORT}
+      - MAIL_SERVER=${MAIL_SERVER}
+      - MAIL_FROM_NAME=${MAIL_FROM_NAME}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALGORITHM=${ALGORITHM}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
+
+    
